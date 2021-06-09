@@ -1,1 +1,1 @@
-jQuery(document).ready(function(t){t(".button__content").click(function(){t(".button__content").removeClass("button__content__active"),t(this).addClass("button__content__active")})});
+jQuery(document).ready(function(e){e(".cleaning-slider__items").length&&new Swiper(".cleaning-slider__items",{slidesPerView:1,loop:!0,observer:!0,spaceBetween:30,observeParents:!0,lazy:!0,effect:"fade",fadeEffect:{crossFade:!0},navigation:{nextEl:".cleaning-slider__next",prevEl:".cleaning-slider__prev"}})});

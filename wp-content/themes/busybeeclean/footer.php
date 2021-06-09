@@ -11,24 +11,70 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'busybeeclean' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'busybeeclean' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'busybeeclean' ), 'busybeeclean', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	<footer id="footer" class="footer">
+        <div class="footer__container main-container">
+            <div class="footer__logo">
+                <?php
+                the_custom_logo();
+                ?>
+            </div>
+            <div class="footer__navigate">
+                <nav class="footer__menu footer__item">
+                    <h3>Service</h3>
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'footer-menu',
+                            'menu_id'        => 'footer-menu',
+                        )
+                    );
+                    ?>
+                </nav>
+                <div class="footer__contacts footer__item">
+                    <h3>Contacts</h3>
+                    <a href="tel:<?php echo the_field('phone', 'options') ?>"><?php echo the_field('phone', 'options') ?></a>
+                    <a href="tel:<?php echo the_field('phone-2', 'options') ?>"><?php echo the_field('phone-2', 'options') ?></a>
+                    <a href="mailto:<?php echo the_field('e-mail', 'options') ?>"><?php echo the_field('e-mail', 'options') ?></a>
+                </div>
+                <div class="footer__adress footer__item">
+                    <h3>Address</h3>
+                    <?php echo the_field('adress', 'options') ?>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="footer__container main-container">
+                <div class="copyright">
+                    Copyright: Busy Bee Clean Limited
+                </div>
+                <div class="footer__social">
+                    <a href="<?php echo the_field('facebook_account_link', 'options') ?>">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path d="M11.0001 0.0458984C4.92496 0.0458984 0 4.97086 0 11.046C0 16.4946 3.96574 21.007 9.16547 21.8808V13.3409H6.51193V10.2677H9.16547V8.00165C9.16547 5.37239 10.7713 3.9396 13.1172 3.9396C14.2407 3.9396 15.2062 4.02331 15.4865 4.06019V6.80846L13.8595 6.80925C12.584 6.80925 12.3381 7.41523 12.3381 8.30477V10.2661H15.3815L14.9846 13.3393H12.3381V21.9543C17.7806 21.2919 22 16.6645 22 11.0428C22 4.97086 17.075 0.0458984 11.0001 0.0458984Z" fill="#040404"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="22" height="22" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__desc">
+                    Do Not Sell My Personal Information
+                </div>
+            </div>
+        </div>
+	</footer>
+</div>
 
-<?php wp_footer(); ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous" defer></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+<script src="<?php echo get_template_directory_uri();?>/dist/js/common.js" defer>
+
+    <?php wp_footer(); ?>
 
 </body>
 </html>

@@ -1,11 +1,23 @@
 jQuery(document).ready(function($) {
 
-    $(".button__content").click(function(){
-        $('.button__content').removeClass('button__content__active');
-        $(this).addClass('button__content__active');
-    });
-
-    
+    if ($('.cleaning-slider__items').length){
+        var MainSlider = new Swiper('.cleaning-slider__items', {
+            slidesPerView: 1,
+            loop: true,
+            observer: true,
+            spaceBetween: 30,
+            observeParents: true,
+            lazy: true,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            navigation: {
+                nextEl: '.cleaning-slider__next',
+                prevEl: '.cleaning-slider__prev',
+            }
+        });
+    }
 
 
 });

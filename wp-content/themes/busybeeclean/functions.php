@@ -50,7 +50,8 @@ if ( ! function_exists( 'busybeeclean_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'busybeeclean' ),
+				'main-menu' => esc_html__( 'main-menu', 'busybeeclean' ),
+				'footer-menu' => esc_html__( 'footer-menu', 'busybeeclean' ),
 			)
 		);
 
@@ -140,8 +141,7 @@ add_action( 'widgets_init', 'busybeeclean_widgets_init' );
  * Enqueue scripts and styles.
  */
 function busybeeclean_scripts() {
-	wp_enqueue_style( 'busybeeclean-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'busybeeclean-style', 'rtl', 'replace' );
+    wp_enqueue_style( 'busybeeclean-style', get_template_directory_uri() . '/dist/css/style.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'busybeeclean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -176,5 +176,40 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title' 	=> 'Параметры',
+        'menu_title'	=> 'Параметры темы',
+        'menu_slug' 	=> 'theme-general-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Параметры Header',
+        'menu_title'	=> 'Header',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Параметры Footer',
+        'menu_title'	=> 'Footer',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Параметры общие',
+        'menu_title'	=> 'Общие',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Параметры Контакты',
+        'menu_title'	=> 'Контакты',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+
 }
 
