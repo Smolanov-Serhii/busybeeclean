@@ -1,0 +1,1 @@
+jQuery(document).ready(function(t){t(".button__content").click(function(){t(".button__content").removeClass("button__content__active"),t(this).addClass("button__content__active")})});
