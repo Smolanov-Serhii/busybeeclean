@@ -20,12 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-	<?php wp_head();
-    $post_id = get_the_ID();
-    ?>
+	<?php wp_head();?>
 
 </head>
-
+<?php $post_id = get_the_ID(); ?>
 <body <?php body_class(); ?> style='background-image: url("<?php echo the_field('background_image', $post_id);?>")'>
 <?php wp_body_open(); ?>
 <div id="page" class="site">

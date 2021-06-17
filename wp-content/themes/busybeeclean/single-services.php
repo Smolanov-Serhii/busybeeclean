@@ -41,7 +41,11 @@ $post_id = get_the_ID();
                     </span>
                 </div>
                 <div class="service-item__main">
-                    <?php the_content();?>
+
+                    <?php
+                    the_post();
+                    the_content();
+                    ?>
                 </div>
             </div>
         </section>

@@ -14,25 +14,28 @@
 
 get_header();
 ?>
+    <main id="default-page" class="default-page">
+        <section class="service-page__section main-container">
+            <h1 class="service-page__title">
+                <?php the_title();?>
+            </h1>
+            <div class="service-page__content">
+                <?php
+                while ( have_posts() ) :
+                    the_post();
 
-	<main id="primary" class="site-main">
+                    get_template_part( 'template-parts/content', 'page' );
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+                    // If comments are open or we have at least one comment, load up the comment template.
+                    if ( comments_open() || get_comments_number() ) :
+                        comments_template();
+                    endif;
 
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
+                endwhile; // End of the loop.
+                ?>
+            </div>
+        </section>
+    </main>
 
 <?php
-get_sidebar();
 get_footer();

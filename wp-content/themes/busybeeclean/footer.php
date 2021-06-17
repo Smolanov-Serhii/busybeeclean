@@ -69,12 +69,13 @@
 	</footer>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous" defer></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
-<script src="<?php echo get_template_directory_uri();?>/dist/js/common.js" defer>
+<?php wp_footer(); ?>
 
-    <?php wp_footer(); ?>
+
+
+
+
+
 
 </body>
 </html>

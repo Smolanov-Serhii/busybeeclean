@@ -19,5 +19,30 @@ jQuery(document).ready(function($) {
         });
     }
 
+    var MainSwiper = new Swiper(".prev-swiper", {
+        loop: true,
+        spaceBetween: 18,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+
+    });
+    var PrevSwiper = new Swiper(".main-swiper", {
+        loop: true,
+        // spaceBetween: 10,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        thumbs: {
+            swiper: MainSwiper,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
 
 });
