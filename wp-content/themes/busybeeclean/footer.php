@@ -68,7 +68,8 @@
         </div>
 	</footer>
 </div>
-
+<script src="https://api-maps.yandex.ru/2.1/?apikey=002aea30-4c19-446a-8a25-9d7ff12d5a8a&lang=ru_RU"
+        type="text/javascript" defer>
 <?php wp_footer(); ?>
 
 
